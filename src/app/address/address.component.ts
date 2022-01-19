@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'address',
@@ -6,7 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./address.component.css'],
 })
 export class AddressComponent implements OnInit {
-  constructor() {}
+  addressForm: FormGroup;
 
-  ngOnInit() {}
+  constructor(private formBuilder: FormBuilder) {}
+
+  ngOnInit(): void {
+    this.addressForm = this.formBuilder.group({
+      state: [null, Validators.required],
+      city: [null, Validators.required],
+    });
+  }
 }
