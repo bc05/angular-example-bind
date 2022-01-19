@@ -7,7 +7,7 @@
   <input formControlName="age" />
   <br />
 
-  <address></address>
+  <address (formChange)="onFormChange($event)"></address>
 
   <button [disabled]="personForm.invalid" (click)="onSave()">Save</button>
 </form>
